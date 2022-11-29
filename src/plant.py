@@ -1,4 +1,5 @@
 import bluetooth
+from subprocess import call
 
 def connectTarget():
     target_name = "BluetoothSpeaker"
@@ -10,9 +11,19 @@ def connectTarget():
             target_address = bdaddr
             break
     if target_addr is not None:
-        print("Found Target Addr: ", target_addr)
+        #target found
+        return true
     else:
-        print("could not find bluetooth device")
+        #target not found
+        return false
+
+def playSound(fileAddress):
+    basecmd = ["mplayer", "-ao", "alsa:device=bluetooth"]
+    call(basecmd + [fileAddress])
+
 
 if __name__ == "__main__":
-    print("python correcting interpreting")
+    if connectTarget():
+        playSound()
+    else:
+        print("unable to connect too a blue tooth device")
