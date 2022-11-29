@@ -24,3 +24,18 @@ To give your device a public URL, access the device page on the [balenaCloud das
 [devices-supported]:https://www.balena.io/docs/reference/hardware/devices/
 [gettingStarted-link]:https://www.balena.io/docs/learn/getting-started/raspberrypi3/python/
 [signup-page]:https://dashboard.balena-cloud.com/signup
+
+
+
+# Important Resources
+https://github.com/pybluez/pybluez/issues/236
+https://gist.github.com/egorf/66d88056a9d703928f93
+
+# Bluetooth dependencies
+sudo apt-get install libbluetooth-dev
+pip install pybluez
+
+# code deployment commands
+balena login
+balena push ScreamingPlant
+balena ssh deviceuuid
