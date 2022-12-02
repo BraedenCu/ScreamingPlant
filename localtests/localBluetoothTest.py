@@ -17,21 +17,29 @@ def connectTarget():
 
     if target_addr is not None:
         #target found
+        print("Target Found: " + target_addr)
         return target_addr
     else:
         #target not found
         return None
 
 #home/dev/music/output.avi
-def playSound(fileAddress):
-    fileAddress = "home/dev/music/output.avi"
+def playSound(files):
+    fileAddress = files[0]
     basecmd = ["mplayer", "-ao", "alsa:device=bluetooth"]
     call(basecmd + [fileAddress])
 
-if __name__ == "__main__":
+def main(audio):
     addr = connectTarget()
+    audioFiles = audio
+
     if addr != None:
-        print(addr)
         bluetoothctl("connect", addr)
+        playSound(audioFiles)
     else:
         print("unable to connect too a bluetooth device")
+
+
+if __name__ == "__main__":
+    fileAddressArr = ["home/dev/music/output.avi"]
+    main(fileAddressArr)

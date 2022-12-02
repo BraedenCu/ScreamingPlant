@@ -35,6 +35,9 @@ https://gist.github.com/egorf/66d88056a9d703928f93
 sudo apt-get install libbluetooth-dev
 pip install pybluez
 
+# moisture sensor dependencies
+sudo pip3 install adafruit-circuitpython-seesaw
+
 # code deployment commands
 balena login
 balena push ScreamingPlant
