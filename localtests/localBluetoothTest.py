@@ -41,5 +41,5 @@ def main(audio):
 
 
 if __name__ == "__main__":
-    fileAddressArr = ["home/dev/music/output.avi"]
+    fileAddressArr = ["./audio/audio.mp3"]
     main(fileAddressArr)
