@@ -3,7 +3,7 @@ from subprocess import call
 from sh import bluetoothctl
 
 def connectTarget():
-    target_name = "Bose QC35 II"
+    target_name = "SHEEPS HEADPHONES"
     target_addr = None
     nearby_devices = bluetooth.discover_devices()
     
