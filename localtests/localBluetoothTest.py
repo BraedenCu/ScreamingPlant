@@ -2,7 +2,7 @@ import bluetooth
 from subprocess import call
 from sh import bluetoothctl
 import pygame
-
+from subprocess import call
 
 def connectTarget():
     target_name = "Family Room speaker"
@@ -26,9 +26,11 @@ def connectTarget():
         return None
 
 #home/dev/music/output.avi
-def playSound(files):
+def playSound(audioFiles):
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play()  
+    cmd = ["mplayer", "-ao", "alsa:device=bluetooth", audioFiles[0]]
+    call(cmd)
     #mixer.music.pause()	
     #mixer.music.unpause()
     #mixer.music.stop()
