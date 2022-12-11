@@ -1,6 +1,8 @@
 import bluetooth
 from subprocess import call
 from sh import bluetoothctl
+import pygame
+
 
 def connectTarget():
     target_name = "SHEEPS HEADPHONES"
@@ -11,7 +13,7 @@ def connectTarget():
         name = bluetooth.lookup_name( bdaddr )
         print(bdaddr)
         print(name)
-        if(name == target_name):
+        if(name != None):
             target_addr = bdaddr
             break
 
@@ -25,9 +27,16 @@ def connectTarget():
 
 #home/dev/music/output.avi
 def playSound(files):
-    fileAddress = files[0]
-    basecmd = ["mplayer", "-ao", "alsa:device=bluetooth"]
-    call(basecmd + [fileAddress])
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play()  
+    #mixer.music.pause()	
+    #mixer.music.unpause()
+    #mixer.music.stop()
+
+def setup():
+    pygame.mixer.init()
+    pygame.mixer.music.load('../audio/audio.mp3')
+
 
 def main(audio):
     addr = connectTarget()
@@ -41,5 +50,6 @@ def main(audio):
 
 
 if __name__ == "__main__":
+    setup()
     fileAddressArr = ["./audio/audio.mp3"]
     main(fileAddressArr)
