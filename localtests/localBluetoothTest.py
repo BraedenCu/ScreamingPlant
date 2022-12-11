@@ -5,7 +5,7 @@ import pygame
 
 
 def connectTarget():
-    target_name = "SHEEPS HEADPHONES"
+    target_name = "Family Room speaker"
     target_addr = None
     nearby_devices = bluetooth.discover_devices()
     
