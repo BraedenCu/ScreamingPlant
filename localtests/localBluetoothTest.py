@@ -33,9 +33,9 @@ def playSound(files):
     #mixer.music.unpause()
     #mixer.music.stop()
 
-def setup():
+def setup(fileAddr):
     pygame.mixer.init()
-    pygame.mixer.music.load('../audio/audio.mp3')
+    pygame.mixer.music.load(fileAddr)
 
 
 def main(audio):
@@ -50,6 +50,6 @@ def main(audio):
 
 
 if __name__ == "__main__":
-    setup()
-    fileAddressArr = ["./audio/audio.mp3"]
+    fileAddressArr = ["../audio/dogbark.mp3"]
+    setup(fileAddressArr)
     main(fileAddressArr)
