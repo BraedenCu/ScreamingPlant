@@ -35,7 +35,7 @@ def playSound(files):
 
 def setup(fileAddr):
     pygame.mixer.init()
-    pygame.mixer.music.load(fileAddr)
+    pygame.mixer.music.load(fileAddr[0])
 
 
 def main(audio):
@@ -44,9 +44,10 @@ def main(audio):
 
     if addr != None:
         bluetoothctl("connect", addr)
-        playSound(audioFiles)
     else:
         print("unable to connect too a bluetooth device")
+
+    playSound(audioFiles)
 
 
 if __name__ == "__main__":
