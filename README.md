@@ -37,6 +37,7 @@ pip install pybluez
 
 # moisture sensor dependencies
 sudo pip3 install adafruit-circuitpython-seesaw
+sudo pip3 install pydub 
 
 # code deployment commands
 balena login
